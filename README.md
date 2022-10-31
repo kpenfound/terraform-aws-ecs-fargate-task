@@ -18,7 +18,7 @@ Example:
 
 ```hcl
 module "fargate_task" {
-  source = "github.com/kpenfound/terraform-aws-ecs-fargate-task"
+  source = "github.com/kpenfound/terraform-aws-ecs-fargate-task?ref=v1.0.0"
 
   name = "mytask"
   r53zone = "example.io"
