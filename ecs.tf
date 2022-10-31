@@ -74,7 +74,7 @@ resource "aws_ecs_service" "fgtask" {
   load_balancer {
     target_group_arn = aws_lb_target_group.fgtask.arn
     container_name   = var.name
-    container_port   = var.port
+    container_port   = var.task_port
   }
 
   network_configuration {
@@ -100,8 +100,8 @@ resource "aws_ecs_task_definition" "fgtask" {
       essential = true
       portMappings = [
         {
-          containerPort = var.port
-          hostPort      = var.port
+          containerPort = var.task_port
+          hostPort      = var.task_port
         }
       ]
     }

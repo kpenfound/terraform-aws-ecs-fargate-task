@@ -12,7 +12,7 @@ resource "aws_lb" "fgtask" {
 
 resource "aws_lb_target_group" "fgtask" {
   name        = var.name
-  port        = var.port
+  port        = var.task_port
   protocol    = "HTTP"
   vpc_id      = local.vpc_id
   target_type = "ip"
@@ -43,7 +43,7 @@ resource "aws_acm_certificate" "fgtask" {
 }
 
 data "aws_route53_zone" "fgtask" {
-  name         = var.domain
+  name         = var.r53zone
   private_zone = false
 }
 
