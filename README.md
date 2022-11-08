@@ -14,6 +14,20 @@ It will create:
 - An https certificate for the load balancer
 - An ECS cluster, service, and Fargate task
 
+```mermaid
+graph LR
+    A[ECS Fargate Service] --> B[ECS Task Definition]
+    A --> C[ECS Cluster]
+    A --> D[Security Group]
+    A --> E[IAM Role]
+    A --> F[LB Target Group]
+    G[LB Listener] --> F
+    G --> H[Load balancer]
+    H --> D
+    G --> I[ACM Certificate]
+    J[R53 Record] --> H
+```
+
 Example:
 
 ```hcl
